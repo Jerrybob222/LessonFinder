@@ -67,3 +67,19 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log("Server running on port " + port);
 });
+
+
+
+
+
+
+
+
+
+
+const fillButton = document.getElementById("sj-fill-button");
+
+fillButton.addEventListener("click", () => {
+  address.value = "algebra lesson";
+  form.requestSubmit();
+});

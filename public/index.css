@@ -9,6 +9,8 @@ body {
 	min-height: 100vh;
 }
 
+
+
 .flex-center {
 	display: flex;
 	justify-content: center;
@@ -22,16 +24,20 @@ body {
 
 .left-margin {
 	margin: 0px 16px;
-}
 
+
+}
 #sj-frame {
-	border: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background-color: #666262;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    border: none;
+    z-index: 999999;
+
+    background: #000;
 }
 
 #sj-error {

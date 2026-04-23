@@ -7,7 +7,6 @@
 		"npm": ">=7.0.0",
 		"node": ">=16.0.0"
 	},
-
 	"scripts": {
 		"start": "node src/index.js",
 		"format": "prettier --write .",
@@ -26,6 +25,7 @@
 		"@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.0-alpha.tgz",
 		"@mercuryworkshop/wisp-js": "^0.4.1",
 		"fastify": "^5.4.0",
+		"pnpm": "^10.33.1",
 		"ws": "^8.18.3"
 	},
 	"devDependencies": {
@@ -33,14 +33,5 @@
 		"expo-cli": "^6.3.10",
 		"prettier": "^3.3.3"
 	},
-
-
 	"packageManager": "pnpm@10.18.3"
-
-
-
-	
 }
-
-
-

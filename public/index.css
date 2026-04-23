@@ -9,6 +9,21 @@ body {
 	min-height: 100vh;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+
 
 
 .flex-center {
@@ -248,3 +263,177 @@ footer a:hover {
 	right: 20px;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* NAVBAR BASE */
+
+
+/* MINI FLOATING BAR */
+#navbar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+
+    display: none;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 8px;
+    border-radius: 12px;
+
+    background: rgba(20, 20, 20, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+
+    z-index: 99999;
+}
+
+/* SMALL BUTTONS */
+#navbar button {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: white;
+
+    padding: 4px 7px;
+    border-radius: 8px;
+
+    font-size: 12px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#navbar button:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* DOT (collapsed state) */
+#navbar-dot {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+
+    width: 53px;
+    height: 24px;
+
+    border-radius: 10%;
+    display: none;
+
+    background: rgba(55, 55, 55, 0.9);
+    box-shadow: 0 0 10px rgba(119, 119, 119, 0.8);
+
+    cursor: pointer;
+
+    z-index: 99999;
+}
+
+
+
+
+/* GLOSSY SHINE EFFECT */
+#navbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.065),
+        transparent
+    );
+
+    transition: 0.6s;
+}
+
+
+/* BUTTON STYLE *//* GLASS BUTTON BASE */
+
+
+#navbar button {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    color: white;
+    font-size: 12px;
+
+    padding: 5px 10px;
+    border-radius: 10px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+#navbar button:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 10px rgba(120,170,255,0.5);
+}
+
+#navbar button:active {
+    transform: scale(0.95);
+}
+
+
+
+
+
+
+/* LOADING BAR CONTAINER */
+#loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    height: 4px;
+    width: 0%;
+
+    background: linear-gradient(90deg, #4aa4ff96, #7d4aff8e, #4aa4ff9d);
+    background-size: 200% 100%;
+
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+
+    z-index: 20000;
+
+    opacity: 0;
+    transition: width 0.1s ease, opacity 0.2s ease;
+    animation: shimmer 3s linear infinite;
+}
+
+/* moving gradient effect */
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+
+
+

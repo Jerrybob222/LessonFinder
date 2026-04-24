@@ -285,28 +285,8 @@ footer a:hover {
 /* NAVBAR BASE */
 
 
-/* MINI FLOATING BAR */
-#navbar {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-
-    display: none;
-    align-items: center;
-    gap: 6px;
-
-    padding: 6px 8px;
-    border-radius: 12px;
-
-    background: rgba(20, 20, 20, 0.35);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255,255,255,0.12);
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-
-    z-index: 99999;
+/* MINI FLOATING BAR */#navbar {
+    display: flex; /* let container control layout */
 }
 
 /* SMALL BUTTONS */
@@ -333,21 +313,20 @@ footer a:hover {
     position: fixed;
     top: 12px;
     left: 12px;
-
+display: none;
     width: 53px;
     height: 24px;
 
     border-radius: 10%;
-    display: none;
+    display: block; /* ✅ MUST be block */
 
     background: rgba(55, 55, 55, 0.9);
     box-shadow: 0 0 10px rgba(119, 119, 119, 0.8);
 
     cursor: pointer;
 
-    z-index: 99999;
+    z-index: 100000; /* ✅ higher than navbar */
 }
-
 
 
 
@@ -437,3 +416,100 @@ footer a:hover {
 
 
 
+
+
+
+/* push search to right */
+#nav-search {
+    margin-left: auto; /* THIS pushes it right */
+
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+
+    padding: 5px 10px;
+    border-radius: 8px;
+
+    font-size: 12px;
+    outline: none;
+
+    width: 180px;
+
+    transition: 0.2s;
+}
+
+#nav-search:focus {
+    border-color: rgba(120,170,255,0.6);
+    box-shadow: 0 0 8px rgba(120,170,255,0.4);
+}
+
+
+
+
+/* container to hold both islands */
+#nav-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+
+    display: none;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 99999;
+}
+
+/* BOTH islands share glass style */
+#navbar,
+#nav-search-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 8px;
+    border-radius: 12px;
+
+    background: rgba(20, 20, 20, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* search input */
+#nav-search {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+
+    padding: 5px 8px;
+    width: 180px;
+    font-size: 12px;
+}
+
+/* search button */
+#nav-search-box button {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    color: white;
+    font-size: 12px;
+
+    padding: 5px 10px;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#nav-search-box button:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+
+#nav-container {
+    display: none; /* 👈 ADD THIS */
+}

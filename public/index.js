@@ -1,5 +1,6 @@
 "use strict";
 
+
 /**
  * Elements
  */
@@ -44,6 +45,8 @@ async function init() {
 }
 
 init();
+
+
 
 /**
  * Create frame (ONLY once)
@@ -121,8 +124,7 @@ currentFrame.go(url);
 setTimeout(() => {
     finishLoading();
 }, 2000); // fallback
-
-document.getElementById("navbar").style.display = "flex";
+document.getElementById("nav-container").style.display = "flex";
 document.getElementById("navbar-dot").style.display = "none";
 window.navOpen = true;
 
@@ -217,23 +219,68 @@ function finishLoading() {
 
 
 
-
-
-
 window.navOpen = false;
 
 window.toggleNavbar = function () {
-    const bar = document.getElementById("navbar");
+    const nav = document.getElementById("nav-container");
     const dot = document.getElementById("navbar-dot");
 
-    window.navOpen = !window.navOpen;
-
-    if (window.navOpen) {
-        bar.style.display = "flex";
+    if (nav.style.display === "none" || nav.style.display === "") {
+        // OPEN
+        nav.style.display = "flex";
         dot.style.display = "none";
     } else {
-        bar.style.display = "none";
-        dot.style.display = "block";
+        // CLOSE
+        nav.style.display = "none";
+        dot.style.display = "block"; // 👈 only appears after close
     }
 };
+
+
+
+
+
+window.navSearch = function () {
+    const input = document.getElementById("nav-search");
+    const query = input.value.trim();
+
+    if (!query || !scramjet || !connection) return;
+
+    const engine = engineSelector.value;
+    const url = search(query, engine);
+
+    try {
+        currentUrl = url;
+        currentFrame.go(url);
+        startLoading();
+
+        setTimeout(() => {
+            finishLoading();
+        }, 2000);
+    } catch (e) {
+        console.error("Nav search failed", e);
+    }
+};
+
+
+
+document.getElementById("nav-search").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        navSearch();
+    }
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dot = document.getElementById("navbar-dot");
+    const nav = document.getElementById("nav-container");
+
+    if (dot) dot.style.display = "none";
+    if (nav) nav.style.display = "none";
+});
+
 

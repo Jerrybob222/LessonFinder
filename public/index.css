@@ -51,7 +51,7 @@ html, body {
 
     border: none;
     z-index: 999999;
-
+  overflow: auto;
     background: #000;
 }
 
@@ -255,13 +255,6 @@ footer a:hover {
                          calc(100% - 13px) calc(1em + 2px);
     background-size: 5px 5px, 5px 5px;
     background-repeat: no-repeat;
-}
-
-.engine-floating {
-
-	bottom : 20px;
-	right: 20px;
-
 }
 
 
@@ -513,3 +506,65 @@ display: none;
 #nav-container {
     display: none; /* 👈 ADD THIS */
 }
+
+
+
+
+
+
+body {
+    background-color: #000;
+
+    /* BASE GRID (dim) */
+    --grid-size: 40px;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+
+    background-size: var(--grid-size) var(--grid-size);
+    filter: blur(0.2px);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    --grid-size: 40px;
+
+    /* BRIGHT GRID */
+    background-image:
+        linear-gradient(rgba(62, 25, 55, 0.9) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 15, 37, 0.9) 1px, transparent 1px);
+
+    background-size: var(--grid-size) var(--grid-size);
+
+    /* 👇 THIS controls where it shows */
+    mask-image: radial-gradient(
+        circle 120px at var(--x, 50%) var(--y, 50%),
+        white 0%,
+        transparent 70%
+    );
+
+    -webkit-mask-image: radial-gradient(
+        circle 120px at var(--x, 50%) var(--y, 50%),
+        white 0%,
+        transparent 70%
+    );
+
+    z-index: 0;
+}
+
+body::before,
+body::after {
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+

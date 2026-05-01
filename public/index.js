@@ -239,13 +239,18 @@ window.toggleNavbar = function () {
 
 
 
+
+
+
+
+
 window.navSearch = function () {
     const input = document.getElementById("nav-search");
     const query = input.value.trim();
 
     if (!query || !scramjet || !connection) return;
 
-    const engine = engineSelector.value;
+   const engine = currentEngine;
     const url = search(query, engine);
 
     try {

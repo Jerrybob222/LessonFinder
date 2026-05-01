@@ -543,8 +543,8 @@ body::after {
 
     /* BRIGHT GRID */
     background-image:
-        linear-gradient(rgba(62, 25, 55, 0.9) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(44, 15, 37, 0.9) 1px, transparent 1px);
+        linear-gradient(rgba(110, 46, 99, 0.9) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(113, 39, 96, 0.9) 1px, transparent 1px);
 
     background-size: var(--grid-size) var(--grid-size);
 
